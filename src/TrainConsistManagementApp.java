@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class TrainConsistManagementApp {
 
@@ -19,17 +21,14 @@ public class TrainConsistManagementApp {
         bogies.add("AC Chair");
         bogies.add("First Class");
 
-        // Display bogies after addition
         System.out.println("Bogies after addition: " + bogies);
 
-        // Remove a bogie (AC Chair)
+        // Remove a bogie
         System.out.println("\n--- Removing a Bogie ---");
         bogies.remove("AC Chair");
-
-        // Display bogies after removal
         System.out.println("Bogies after removal: " + bogies);
 
-        // Check existence of a bogie
+        // Check existence
         System.out.println("\n--- Checking Bogie Existence ---");
         if (bogies.contains("Sleeper")) {
             System.out.println("Sleeper bogie is present in the train.");
@@ -37,9 +36,26 @@ public class TrainConsistManagementApp {
             System.out.println("Sleeper bogie is NOT present in the train.");
         }
 
-        // Final state
         System.out.println("\nFinal train consist: " + bogies);
-        System.out.println("Total number of bogies: " + bogies.size());
+
+        // UC3: Track Unique Bogie IDs using HashSet
+        System.out.println("\n=== Tracking Unique Bogie IDs (HashSet) ===");
+
+        Set<String> bogieIds = new HashSet<>();
+
+        // Adding bogie IDs (including duplicates)
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
+        bogieIds.add("BG101"); // duplicate
+        bogieIds.add("BG102"); // duplicate
+
+        // Display unique bogie IDs
+        System.out.println("Bogie IDs after insertion (duplicates ignored):");
+        System.out.println(bogieIds);
+
+        // Display total unique IDs
+        System.out.println("Total unique bogie IDs: " + bogieIds.size());
 
         System.out.println("\nSystem is ready for further operations...");
     }
